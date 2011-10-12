@@ -10,8 +10,8 @@
 	<div id="wpr-page">
 		<div id="page">
 			<header>
-				<div id="logo">Django Fiber example</div>
-				<nav id="mainmenu" class="clearfix">
+				<div id="logo">The World Scholar's Cup</div>
+				<nav id="mainmenu" class="clearfix grad-red">
 					{% show_menu "mainmenu" 1 3 "all" %}
 				</nav>
 			</header>
@@ -19,6 +19,7 @@
 				<nav id="submenu">
 					{% show_menu "sidemenu" 1 3 "all" %}
 				</nav>
+				{% show_page_content "aside_left" %}
 			</aside>
 			<section id="main">
 				<nav id="breadcrumbs" class="clearfix">
@@ -35,10 +36,11 @@
 				</article>
 			</section>
 			<aside id="aside-right">
-				{% show_page_content "aside" %}
-
-				{% show_content "address" %}
+				{% show_page_content "aside_right" %}
 			</aside>
+			<footer id="footer">
+				&copy;{% now "Y" %} World Scholar's Cup <span>|</span> 1006 Wall St. <span>|</span> Los Angeles, CA 90015 <span>|</span> +1 866 336 4332 <span>|</span> +1 818 716 2820
+			</footer>
 		</div>
 	</div>
 </body>

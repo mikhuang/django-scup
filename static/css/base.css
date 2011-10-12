@@ -6,11 +6,34 @@ version: 2.9.0
 */
 html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}del,ins{text-decoration:none}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:baseline}sub{vertical-align:baseline}legend{color:#000}
 
+/* Gradients */
+.grad-red {
+    background: #771c17;
+    background: -webkit-gradient(linear, left top, left bottom, from(#630f13), to(#8a281a));
+    background: -moz-linear-gradient(top, #630f13, #8a281a);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#630f13', endColorstr='#8a281a');
+}
+
+.grad-yel,
+#mainmenu ul li.current>a,
+#mainmenu ul ul li a:hover,
+#submenu ul li a:hover,
+#submenu ul li.current>a {
+    background: #ffdf38;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff540), to(#fed231));
+    background: -moz-linear-gradient(top, #fff540, #fed231);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#fff540', endColorstr='#fed231');
+}
+
 /* Body */
 
+html {
+    background: url(/static/img/linen-bg.jpg);
+}
+
 body {
-	font-family: 'Helvetica', 'Arial', sans-serif;
-	color: #666;
+    font-family: Georgia, Times, serif;
+    color: #4c4c4c;
 }
 
 /* Page */
@@ -20,133 +43,208 @@ body {
 }
 
 #page {
-	margin: 0 auto;
-	width: 960px;
+    margin: 0 auto;
+    width: 960px;
 }
 
 /* Header */
 
 header {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #logo {
-	padding: 15px 10px;
-	font-size: 40px;
-	color: #999;
-	font-weight: lighter;
+    margin: 15px 10px;
+    text-indent: -999em;
+    width: 381px;
+    height: 89px;
+    background: url(/static/img/scholars-cup-logo.png) no-repeat;
 }
 
 /* Main menu */
 
 #mainmenu {
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	padding: 5px 10px;
+    padding: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,.15);
+}
+
+#mainmenu ul {
+    float: left;
 }
 
 #mainmenu ul li {
-	float: left;
-	display: block;
-	padding: 0 9px;
+    float: left;
+    position: relative;
+    display: block;
 }
 
 #mainmenu ul li:first-child {
-	padding-left: 0;
+    padding-left: 0;
 }
 
 #mainmenu ul li:last-child {
-	padding-right: 0;
+    padding-right: 0;
 }
 
 #mainmenu ul li a {
-	display: block;
-	font-size: 12px;
-	line-height: 120%;
-	font-weight: bold;
-	letter-spacing: 1px;
-	text-decoration: none;
-	text-transform: uppercase;
-	color: #666;
+    display: block;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
 }
 
-#mainmenu ul li a:hover,
-#mainmenu ul li.current a {
-	color: #f30;
+#mainmenu ul li a:hover {}
+
+#mainmenu ul ul li a:hover,
+#mainmenu ul li.current>a,
+#submenu ul li a:hover,
+#submenu ul li.current>a {
+    color: #781919;
+    /* background: .grad-yel */
 }
+
+#mainmenu ul ul {
+    position: absolute;
+    z-index: 100;
+    background: #fff;
+    border: 1px solid #b2b2b2;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.15);
+}
+
+#mainmenu ul ul a {
+    width: 10em;
+    color: #666;
+}
+
+#mainmenu ul ul ul {
+    top: -1px;
+    left: 100%;
+    z-index: 101;
+}
+
+#mainmenu ul ul,
+#mainmenu ul li:hover ul ul,
+#mainmenu ul ul li:hover ul ul
+{display: none;}
+
+#mainmenu ul li:hover ul,
+#mainmenu ul ul li:hover ul,
+#mainmenu ul ul ul li:hover ul
+{display: block;}
+
+
+
 
 /* Submenu */
 
+#submenu {
+    border-right: 1px solid #ccc;
+}
+
 #submenu ul {
-	width: 120px;
+
 }
 
 #submenu ul li {
-	margin: 0.5em 0;
+    /*margin: 0.5em 0;*/
+    position: relative;
 }
 
-#submenu ul li ul {
-	margin: 0.5em 0;
+/*#submenu ul li ul {
+    margin: 0.5em 0;
 }
 
 #submenu ul li ul li {
-	margin-left: 15px;
-}
+    margin-left: 15px;
+}*/
 
 #submenu ul li a {
-	display: block;
-	font-size: 14px;
-	line-height: 120%;
-	text-decoration: none;
-	color: #666;
+    display: block;
+    line-height: 120%;
+    text-decoration: none;
+    color: #666;
+    padding: 10px;
+    width: 179px;
+    margin-bottom: 2px;
 }
 
-#submenu ul li a:hover,
-#submenu ul li.current a {
-	color: #f30;
+#submenu ul li a:hover {
+
 }
 
 #submenu ul li.current ul li a {
-	color: #666;
+    color: #666;
 }
 
 #submenu ul li.current ul li a:hover,
 #submenu ul li ul li.current a {
-	color: #f30;
+    color: #781919;
 }
+
+#submenu ul ul {
+    position: absolute;
+    z-index: 100;
+    left: 100%;
+    top: 0;
+    background: #fff;
+    border: 1px solid #b2b2b2;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.15);
+}
+
+#submenu ul ul a {
+    width: 10em;
+    color: #666;
+}
+
+#submenu ul ul ul {
+    top: -1px;
+    left: 100%;
+    z-index: 101;
+}
+
+#submenu ul ul,
+#submenu ul li:hover ul ul,
+#submenu ul ul li:hover ul ul
+{display: none;}
+
+#submenu ul li:hover ul,
+#submenu ul ul li:hover ul,
+#submenu ul ul ul li:hover ul
+{display: block;}
 
 /* Breadcrumbs */
 
 #breadcrumbs {
-	padding: 10px 0 20px 0;
+    padding: 10px 0 20px 0;
 }
 
 #breadcrumbs ul li {
-	float: left;
-	display: block;
-	margin-right: 5px;
+    float: left;
+    display: block;
+    margin-right: 5px;
 }
 
 #breadcrumbs ul li a {
-	font-size: 12px;
-	line-height: 120%;
-	text-decoration: none;
-	color: #666;
+    font-size: 12px;
+    line-height: 120%;
+    text-decoration: none;
+    color: #666;
 }
 
 #breadcrumbs ul li:after {
-	content: '»';
-	color: #666;
+    content: '»';
+    color: #666;
 }
 
 #breadcrumbs ul li:last-child:after {
-	content: '';
+    content: '';
 }
 
 /* ---[ Main ]--- */
 
 #main {
-	padding-bottom: 40px;
+    padding-bottom: 40px;
 }
 
 /* ---[ Main layout ]--- */
@@ -154,15 +252,14 @@ header {
 #aside-left,
 #aside-right,
 #main {
-	float: left;
-	padding: 10px;
-	width: 200px;
-	min-height: 10px;
+    float: left;
+    width: 200px;
+    min-height: 10px;
 }
 
 #main {
-	padding: 0 10px;
-	width: 500px;
+    padding: 0 10px;
+    width: 500px;
 }
 
 /* Content formatting */
@@ -175,113 +272,113 @@ header {
 .content h2,
 .content h3,
 .content h4 {
-	font-weight: bold;
-	color: #666;
+    font-weight: bold;
+    color: #666;
 }
 
 .content h1 {
-	font-size: 30px;
+    font-size: 30px;
     line-height: 120%;
 }
 
 .content h2 {
-	font-size: 16px;
-	line-height: 150%;
-	color: #666;
+    font-size: 16px;
+    line-height: 150%;
+    color: #666;
 }
 
 .content h3 {
-	font-size: 14px;
+    font-size: 14px;
 }
 
 .content ul,
 .content ol,
 .content p {
-	font-size: 14px;
-	line-height: 150%;
+    font-size: 100%;
+    line-height: 150%;
 }
 
 .content p {
-	margin-bottom: 21px;
+    margin-bottom: 21px;
 }
 
 .content table {
-	margin: 0 0 1.25em 0;
-	border: 1px solid #333;
-	width: 100%;
+    margin: 0 0 1.25em 0;
+    border: 1px solid #333;
+    width: 100%;
 }
 
 .content table tr th,
 .content table tr td {
-	border: 1px solid #333;
-	display: table-cell;
-	padding: 5px;
-	vertical-align: top;
+    border: 1px solid #333;
+    display: table-cell;
+    padding: 5px;
+    vertical-align: top;
 }
 
 .content table tr th {
-	color: #fff;
-	background-color: #555;
+    color: #fff;
+    background-color: #555;
 }
 
 .content a {
-	color: #f30;
-	text-decoration: underline;
+    color: #f30;
+    text-decoration: underline;
 }
 
 .content a:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .content img {
-	float: left;
-	margin: 0 1em 0.5em 0;
+    float: left;
+    margin: 0 1em 0.5em 0;
 }
 
 .content strong {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .content em {
-	font-style: italic;
+    font-style: italic;
 }
 
 .content ul,
 .content ol {
-	margin: 0 0 1.25em 0;
+    margin: 0 0 1.25em 0;
 }
 
 .content ul li ul,
 .content ol li ol {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .content p + ul,
 .content p + ol {
-	margin-top: -21px;
+    margin-top: -21px;
 }
 
 .content ul li {
-	margin-left: 15px;
-	padding: 0.1em 0 0.1em 0.1em;
-	list-style-type: square;
+    margin-left: 15px;
+    padding: 0.1em 0 0.1em 0.1em;
+    list-style-type: square;
 }
 
 .content ul li {
-	margin-left: 15px;
-	padding: 0.1em 0 0.1em 0.1em;
-	list-style-type: disc;
+    margin-left: 15px;
+    padding: 0.1em 0 0.1em 0.1em;
+    list-style-type: disc;
 }
 
 .content ul li ul,
 .content ul li ul li ul {
-	margin: 0;
+    margin: 0;
 }
 
 ol li {
-	margin-left: 20px;
-	padding: 0.1em 0 0.1em 0;
-	list-style-type: decimal;
+    margin-left: 20px;
+    padding: 0.1em 0 0.1em 0;
+    list-style-type: decimal;
 }
 
 /* Clearfix boilerplate */
@@ -290,8 +387,20 @@ ol li {
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
 
+#footer {
+    font: 75% Helvetica, Arial, sans-serif;
+    color: #aaa;
+    clear: both;
+    text-align: center;
+    padding: 2em 0;
+}
+
+#footer span {
+	color: #ddd;
+}
+
 /* Scholar's Cup Specific */
 
 nav {
-	padding-bottom: 10px;
+    padding-bottom: 10px;
 }
