@@ -1,0 +1,13 @@
+- model: fiber.page
+  pk: 1
+  fields:
+    title: mainmenu
+- model: fiber.page
+  pk: 2
+  fields:
+    title: sidemenu
+- model: fiber.page
+  pk: 3
+  fields:
+    title: Home
+    parent_id: 1
