@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load fiber_tags thumbnail %}
+
+{% block article %}
+	{% for material in materials %}
+	{{ material }}
+	{% endfor %}
+	{% show_page_content "main" %}
+{% endblock article %}

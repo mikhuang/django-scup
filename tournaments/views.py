@@ -10,7 +10,7 @@ def index(request):
 
   try:
     fiber_page = Page.objects.get(url__exact='tournaments')
-  except:
+  except Page.DoesNotExist:
     # if there is no page, just make it
     page = Page(url='tournaments', title="Tournaments")
     fiber_page = page.save()

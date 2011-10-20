@@ -92,6 +92,16 @@ class Page(MPTTModel):
             old_url = Page.objects.get(id=self.id).get_absolute_url()
         else:
             old_url = ''
+        
+        # check that url is not taken by another page
+        # not a gaurantee since this only checks the text instead of the actual get_absolute_url
+        if self.url != '':
+            others = Page.objects.filter(url=self.url)
+            if others:
+                self.url = ''
+                # link to first we find
+                self.redirect_page = others[0]
+
 
         super(Page, self).save(*args, **kwargs)
 
@@ -102,6 +112,9 @@ class Page(MPTTModel):
 
     def get_absolute_url(self):
         if self.url == '':
+            # check to see if it's a redirect and return that page's url
+            if self.redirect_page:
+                return self.redirect_page.get_absolute_url()
             return ''
         if self.url.startswith('/'):
             return '%s/' % self.url.rstrip('/')

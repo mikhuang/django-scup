@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-{% load fiber_tags %}
+{% load fiber_tags %}<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -16,12 +15,15 @@
 				</nav>
 			</header>
 			<aside id="aside-left">
+			{% block aside-left %}
 				<nav id="submenu">
 					{% show_menu "sidemenu" 1 3 "all" %}
 				</nav>
 				{% show_page_content "aside_left" %}
+			{% endblock aside-left %}
 			</aside>
 			<section id="main">
+			{% block main %}
 				<nav id="breadcrumbs" class="clearfix">
 					<ul>
 						{% for fiber_page in fiber_current_pages %}
@@ -32,11 +34,16 @@
 					</ul>
 				</nav>
 				<article>
+					{% block article %}
 					{% show_page_content "main" %}
+					{% endblock article %}
 				</article>
+			{% endblock main %}
 			</section>
 			<aside id="aside-right">
+			{% block aside-right %}
 				{% show_page_content "aside_right" %}
+			{% endblock aside-right %}
 			</aside>
 			<footer id="footer">
 				&copy;{% now "Y" %} World Scholar's Cup <span>|</span> 1006 Wall St. <span>|</span> Los Angeles, CA 90015 <span>|</span> +1 866 336 4332 <span>|</span> +1 818 716 2820
