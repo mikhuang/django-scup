@@ -133,20 +133,23 @@ class ShowPageContentNode(template.Node):
     def render(self, context):
         try:
             page = self.page.resolve(context)
-            page_content_items = page.page_content_items.filter(block_name=self.block_name).order_by('sort')
+            if page:
+                page_content_items = page.page_content_items.filter(block_name=self.block_name).order_by('sort')
 
-            content_items = []
-            for page_content_item in page_content_items:
-                content_item = page_content_item.content_item
-                content_item.page_content_item = page_content_item
-                content_items.append(content_item)
+                content_items = []
+                for page_content_item in page_content_items:
+                    content_item = page_content_item.content_item
+                    content_item.page_content_item = page_content_item
+                    content_items.append(content_item)
 
-            context['ContentItem'] = ContentItem
-            context['fiber_page'] = page
-            context['fiber_block_name'] = self.block_name
-            context['fiber_content_items'] = content_items
-            t = template.loader.get_template('fiber/content_items.html')
-            return t.render(context)
+                context['ContentItem'] = ContentItem
+                context['fiber_page'] = page
+                context['fiber_block_name'] = self.block_name
+                context['fiber_content_items'] = content_items
+                t = template.loader.get_template('fiber/content_items.html')
+                return t.render(context)
+            else:
+                return ''
 
         except template.VariableDoesNotExist:
             # page does not exist in the context

@@ -7,7 +7,13 @@ from fiber.models import Page
 def index(request):
   materials = Material.objects.all()
 
-  fiber_page = Page.objects.get(url__exact='materials')
+  try:
+    fiber_page = Page.objects.get(url__exact='materials')
+  except:
+    # if there is no page, just make it
+    page = Page(url='materials', title="Materials")
+    page.save()
+    fiber_page = page
 
   t = loader.get_template('materials.html')
   c = RequestContext(request, {

@@ -141,7 +141,7 @@ INSTALLED_APPS = (
     'reversion',
     'compressor',
     'fiber', 
-    
+    'sorl.thumbnail',
 
     # Scup Apps
     'scup.materials',

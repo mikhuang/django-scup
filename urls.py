@@ -15,6 +15,9 @@ urlpatterns = patterns('',
     
     (r'^materials', 'scup.materials.views.index'),
     
+    (r'^tournaments/$', 'scup.tournaments.views.index'),
+    (r'^tournaments/(?P<year>\d{4})/(?P<slug>[\d\w\-]*)', 'scup.tournaments.views.view'),
+    
     # for django-fiber
     (r'^api/v1/', include('fiber.api.urls')),
     (r'^admin/fiber/', include('fiber.admin_urls')),

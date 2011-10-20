@@ -11,22 +11,26 @@ class Tournament(TimestampAbstract):
   location = models.CharField(max_length=255, help_text="Enter an address that can be located using Google Maps. Leave blank to manually enter lat and lon.", default='', blank=True)
   lat = models.FloatField(default=0)
   lon = models.FloatField(default=0)
+  slug = models.SlugField(unique_for_year=True)
   
   class Meta:
     pass
   
   def __unicode__(self):
-    year = self.year()
-    return "%s (%s)"%(self.name,year)
-  
-  def year(self):
-    return self.date.year
+    return "%s (%s)"%(self.name,self.date.year)
   
   # assuming that we're never having a competition at the equator and prime meridian
   def has_location(self):
     if self.lat is not 0 and self.lon is not 0:
       return True
     return False
+  
+  @models.permalink
+  def get_absolute_url(self):
+    return ('scup.tournaments.views.view', (), {
+      'year': self.date.year,
+      'slug': self.slug
+    })
     
 
 
