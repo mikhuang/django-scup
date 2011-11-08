@@ -4,28 +4,7 @@ Code licensed under the BSD License:
 http://developer.yahoo.com/yui/license.html
 version: 2.9.0
 */
-
 html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}del,ins{text-decoration:none}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:baseline}sub{vertical-align:baseline}legend{color:#000}
-
-/* Import font */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
-}
-@font-face {
-  font-family: 'Open Sans';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Open Sans Italic'), local('OpenSans-Italic'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff') format('woff');
-}
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Open Sans Bold'), local('OpenSans-Bold'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff') format('woff');
-}
 
 /* Gradients */
 .grad-red {
@@ -53,7 +32,7 @@ html {
 }
 
 body {
-    font-family: 'Open Sans';
+    font-family: Georgia, Times, serif;
     color: #4c4c4c;
 }
 
@@ -65,7 +44,7 @@ body {
 
 #page {
     margin: 0 auto;
-    width: 1140px;
+    width: 960px;
 }
 
 /* Header */
@@ -85,8 +64,7 @@ header {
 /* Main menu */
 
 #mainmenu {
-    padding-left: 280px;
-    padding-right: 280px;
+    padding: 0;
     box-shadow: 0 1px 3px rgba(0,0,0,.15);
 }
 
@@ -113,11 +91,7 @@ header {
     letter-spacing: 1px;
     text-decoration: none;
     color: #fff;
-
     padding: 10px;
-   /* padding-left: 20px;
-    padding-right: 20px; */
-    
 }
 
 #mainmenu ul li a:hover {}
@@ -133,13 +107,14 @@ header {
 #mainmenu ul ul {
     position: absolute;
     z-index: 100;
-    background: #771c17;; 
+    background: #fff;
+    border: 1px solid #b2b2b2;
     box-shadow: 2px 2px 6px rgba(0,0,0,.15);
 }
 
 #mainmenu ul ul a {
-    width: 225px;
-    color: #fff;
+    width: 10em;
+    color: #666;
 }
 
 #mainmenu ul ul ul {
@@ -160,10 +135,11 @@ header {
 
 
 
+
 /* Submenu */
 
 #submenu {
-    background: #771c17;
+    border-right: 1px solid #ccc;
 }
 
 #submenu ul {
@@ -187,10 +163,9 @@ header {
     display: block;
     line-height: 120%;
     text-decoration: none;
-    text-align: center;
-    color: #fff;
+    color: #666;
     padding: 10px;
-    width: 250px;
+    width: 179px;
     margin-bottom: 2px;
 }
 
@@ -212,14 +187,14 @@ header {
     z-index: 100;
     left: 100%;
     top: 0;
-    background: #771c17;
-    border-left: 1px solid #fff;
+    background: #fff;
+    border: 1px solid #b2b2b2;
     box-shadow: 2px 2px 6px rgba(0,0,0,.15);
 }
 
 #submenu ul ul a {
-    width: 180px;
-    color: #fff;
+    width: 10em;
+    color: #666;
 }
 
 #submenu ul ul ul {
@@ -278,13 +253,13 @@ header {
 #aside-right,
 #main {
     float: left;
-    width: 270px;
+    width: 200px;
     min-height: 10px;
 }
 
 #main {
-    padding: 0 40px;
-    width: 770px;
+    padding: 0 10px;
+    width: 500px;
 }
 
 /* Content formatting */
@@ -413,7 +388,7 @@ ol li {
 .clearfix { zoom: 1; }
 
 #footer {
-    font: 75% 'Open Sans', sans-serif;
+    font: 75% Helvetica, Arial, sans-serif;
     color: #aaa;
     clear: both;
     text-align: center;
@@ -427,5 +402,5 @@ ol li {
 /* Scholar's Cup Specific */
 
 nav {
-    padding-bottom: 0px;
+    padding-bottom: 10px;
 }
