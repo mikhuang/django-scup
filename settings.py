@@ -144,7 +144,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
 
     # Scup Apps
-    'scup.materials',
+    #'scup.materials',
     'scup.tournaments',
 )
 

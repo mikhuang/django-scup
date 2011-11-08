@@ -8,10 +8,10 @@ def index(request):
   materials = Material.objects.all()
 
   try:
-    fiber_page = Page.objects.get(url__exact='materials')
+    fiber_page = Page.objects.get(url__exact='/materials')
   except Page.DoesNotExist:
     # if there is no page, just make it
-    page = Page(url='materials', title="Materials")
+    page = Page(url='/materials', title="Materials")
     page.save()
     fiber_page = page
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load fiber_tags %}
+{% load thumbnail %}
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>{% block title %}{{ fiber_page.title }}{% endblock %}</title>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+</head>
+<body class="{% block body_class %}{{ fiber_page.title|slugify }}{% endblock %}">
+	<div id="wpr-page">
+		<div id="page">
+			<header>
+				<div id="logo">Django Fiber exampl TPOURNAMENTS</div>
+				<nav id="mainmenu" class="clearfix">
+					{% show_menu "mainmenu" 1 1 %}
+				</nav>
+			</header>
+			<aside id="aside-left">
+				<nav id="submenu">
+					{% show_menu "mainmenu" 2 3 %}
+				</nav>
+			</aside>
+			<section id="main">
+				<nav id="breadcrumbs" class="clearfix">
+					<ul>
+						{% for fiber_page in fiber_current_pages %}
+						<li>
+							<a href="{{ fiber_page.get_absolute_url }}">{{ fiber_page.title }}</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</nav>
+				<article>
+				 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false">
+					</script> 
+					<div id="map_canvas" style="height:300px; weight:100%;"></div>
+					{% with tournament_url=tournament.get_absolute_url %}
+					<div class="tournament">
+						<span class="thumb"><a href="{{tournament_url}}">{% thumbnail tournament.image "100x100" crop="center" as im %}<img src="{{im.url}}">{% endthumbnail %}</span>
+						<span class="name"><a href="{{tournament_url}}">{{ tournament.name }}</a></span>
+						<span class="date">{{ tournament.date }}</span>
+						<span class="lat">{{ tournament.lat }}</span>
+						<span class="lon">{{ tournament.lon }}</span>
+					</div>
+					{% endwith %}
+					<script type="text/javascript">
+					(function($) {
+						function initMap() {
+							var mapOpts = {
+								mapTypeId: google.maps.MapTypeId.ROADMAP
+							}
+							var map = new google.maps.Map(document.getElementById('map_canvas'), mapOpts);
+							var bounds = new google.maps.LatLngBounds();
+
+							$('.tournament').each(function(index){
+								var latlon = new google.maps.LatLng(
+									Number($(this).find('.lat').text()),
+									Number($(this).find('.lat').text())
+								);
+								var marker = new google.maps.Marker({
+									position: latlon,
+									map: map,
+									title: $(this).find('.name').text()
+								});
+								var infowindow = new google.maps.InfoWindow({
+									content: $(this).html()
+								});
+								google.maps.event.addListener(marker, 'click', function() {
+									infowindow.open(map, marker);
+								});
+								bounds.extend(latlon);
+							});
+
+							map.fitBounds(bounds);
+
+						}
+						initMap();
+					})(jQuery)
+					</script>
+				</article>
+			</section>
+			<aside id="aside-right">
+				{% show_page_content "aside" %}
+
+				{% show_content "address" %}
+			</aside>
+		</div>
+	</div>
+</body>
+</html>

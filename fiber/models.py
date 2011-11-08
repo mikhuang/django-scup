@@ -76,6 +76,7 @@ class Page(MPTTModel):
     protected = models.BooleanField(_('protected'), default=False)
     content_items = models.ManyToManyField(ContentItem, through='PageContentItem', verbose_name=_('content items'))
     metadata = JSONField(blank=True, null=True, schema=METADATA_PAGE_SCHEMA, prefill_from='fiber.models.Page')
+    absolute_url = models.CharField(blank=True, max_length=255)
 
     objects = managers.PageManager()
 
@@ -93,15 +94,18 @@ class Page(MPTTModel):
         else:
             old_url = ''
         
-        # check that url is not taken by another page
-        # not a gaurantee since this only checks the text instead of the actual get_absolute_url
-        if self.url != '':
-            others = Page.objects.filter(url=self.url)
-            if others:
-                self.url = ''
-                # link to first we find
-                self.redirect_page = others[0]
+        # doesn't work since multiple pages can have same url
+        # # check that url is not taken by another page
+        # # not a gaurantee since this only checks the text instead of the actual get_absolute_url
+        # if self.url != '':
+        #     others = Page.objects.filter(url=self.url)
+        #     if others:
+        #         self.url = ''
+        #         # link to first we find
+        #         self.redirect_page = others[0]
 
+        # cache the absolute url for use by other models
+        self.absolute_url = self.get_absolute_url()
 
         super(Page, self).save(*args, **kwargs)
 

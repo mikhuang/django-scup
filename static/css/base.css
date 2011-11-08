@@ -53,7 +53,8 @@ header {
     margin-bottom: 10px;
 }
 
-#logo {
+#logo a {
+    display: block;
     margin: 15px 10px;
     text-indent: -999em;
     width: 381px;
@@ -212,7 +213,7 @@ header {
 #submenu ul ul ul li:hover ul
 {display: block;}
 
-.arrow { padding:0 !important; border-width:4px; border-color: #ccc transparent transparent transparent; border-style:solid; position:absolute; margin: 7px 0 0 3px; top: 0; right: 0;}
+.arrow { padding:0 !important; border-width:4px; border-color: #ccc transparent transparent transparent; border-style:solid; position:absolute; margin: 7px 0 0 3px; top: 0; right: 4px;}
 
 #mainmenu ul ul .arrow,
 #submenu .arrow {
