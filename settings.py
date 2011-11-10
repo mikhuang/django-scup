@@ -104,7 +104,7 @@ MIDDLEWARE_CLASSES = (
     'fiber.middleware.ObfuscateEmailAddressMiddleware',
     'fiber.middleware.AdminPageMiddleware',
     'fiber.middleware.PageFallbackMiddleware',
-)
+) 
 
 ROOT_URLCONF = 'scup.urls'
 
@@ -170,5 +170,7 @@ LOGGING = {
         },
     }
 }
+
+TOURNAMENT_YEARS = (2012,2011,2010,2009,2008,2007)
 
 from settings_local import *

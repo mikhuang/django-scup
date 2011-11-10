@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>{% block title %}{{ fiber_page.title }}{% endblock %}</title>
+	<title>{% block title %}{{ fiber_page.title }}{% if fiber_page.title != "The World Scholar's Cup" %} - The World Scholar's Cup{% endif %}{% endblock %}</title>
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
 </head>
 <body class="{% block body_class %}{{ fiber_page.title|slugify }}{% endblock %}">
@@ -24,6 +24,7 @@
 			</aside>
 			<section id="main">
 			{% block main %}
+				{% block breadcrumbs %}
 				<nav id="breadcrumbs" class="clearfix">
 					<ul>
 						{% for fiber_page in fiber_current_pages %}
@@ -33,6 +34,7 @@
 						{% endfor %}
 					</ul>
 				</nav>
+				{% endblock breadcrumbs %}
 				<article>
 					{% block article %}
 					{% show_page_content "main" %}
@@ -42,7 +44,6 @@
 			</section>
 			<aside id="aside-right">
 			{% block aside-right %}
-				{% show_page_content "aside_right" %}
 			{% endblock aside-right %}
 			</aside>
 			<footer id="footer">
@@ -50,5 +51,5 @@
 			</footer>
 		</div>
 	</div>
-</body>
+{% block append_body %}{% endblock %}</body>
 </html>

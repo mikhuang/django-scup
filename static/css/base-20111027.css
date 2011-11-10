@@ -4,36 +4,10 @@ Code licensed under the BSD License:
 http://developer.yahoo.com/yui/license.html
 version: 2.9.0
 */
-
 html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}del,ins{text-decoration:none}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:baseline}sub{vertical-align:baseline}legend{color:#000}
 
-/* Import font */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
-}
-@font-face {
-  font-family: 'Open Sans';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Open Sans Italic'), local('OpenSans-Italic'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff') format('woff');
-}
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Open Sans Bold'), local('OpenSans-Bold'), url('http://themes.googleusercontent.com/static/fonts/opensans/v5/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff') format('woff');
-}
-
-.hidden {
-    display: none;
-}
-
 /* Gradients */
-.grad-red,
-.horizmenu ul li.current a {
+.grad-red {
     background: #771c17;
     background: -webkit-gradient(linear, left top, left bottom, from(#630f13), to(#8a281a));
     background: -moz-linear-gradient(top, #630f13, #8a281a);
@@ -52,22 +26,14 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 }
 
 /* Body */
+
 html {
     background: url(/static/img/linen-bg.jpg);
 }
 
 body {
-    font-family: 'Open Sans', Tahoma, Helvetica, Arial, sans-serif;
+    font-family: Georgia, Times, serif;
     color: #4c4c4c;
-}
-
-h1 {
-    font-size: 200%;
-    font-weight: bold;
-
-}
-small {
-    font-size: 85%;
 }
 
 /* Page */
@@ -87,8 +53,7 @@ header {
     margin-bottom: 10px;
 }
 
-#logo a {
-    display: block;
+#logo {
     margin: 15px 10px;
     text-indent: -999em;
     width: 381px;
@@ -99,8 +64,7 @@ header {
 /* Main menu */
 
 #mainmenu {
-    /*padding-left: 280px;
-    padding-right: 280px;*/
+    padding: 0;
     box-shadow: 0 1px 3px rgba(0,0,0,.15);
 }
 
@@ -112,7 +76,6 @@ header {
     float: left;
     position: relative;
     display: block;
-    padding-right: 10px;
 }
 
 #mainmenu ul li:first-child {
@@ -128,11 +91,7 @@ header {
     letter-spacing: 1px;
     text-decoration: none;
     color: #fff;
-
     padding: 10px;
-   /* padding-left: 20px;
-    padding-right: 20px; */
-    
 }
 
 #mainmenu ul li a:hover {}
@@ -142,25 +101,20 @@ header {
 #submenu ul li a:hover,
 #submenu ul li.current>a {
     color: #781919;
-    border-radius: 3px;
     /* background: .grad-yel */
 }
 
 #mainmenu ul ul {
     position: absolute;
     z-index: 100;
-    background: #eee;
-    background: rgba(255, 255, 255, .95);
-    border-radius: 3px;
+    background: #fff;
+    border: 1px solid #b2b2b2;
     box-shadow: 2px 2px 6px rgba(0,0,0,.15);
-}
-#mainmenu ul ul li {
-    padding: 0;
 }
 
 #mainmenu ul ul a {
-    width: 225px;
-    color: #333;
+    width: 10em;
+    color: #666;
 }
 
 #mainmenu ul ul ul {
@@ -181,14 +135,11 @@ header {
 
 
 
+
 /* Submenu */
 
 #submenu {
-    background: #eee;
-    background: rgba(255,255,255,.5);
-    border-top-right-radius:3px;
-    border-bottom-right-radius:3px;
-    box-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    border-right: 1px solid #ccc;
 }
 
 #submenu ul {
@@ -212,17 +163,10 @@ header {
     display: block;
     line-height: 120%;
     text-decoration: none;
-    text-align: left;
-    color: #333;
-    padding: 10px 20px 10px 10px;
-/*<<<<<<< HEAD
+    color: #666;
+    padding: 10px;
     width: 179px;
-    width: 250px;
-=======*/
     margin-bottom: 2px;
-/*>>>>>>> b4942f7c92d8ecdecaee15664a05d8601bedecf1*/
-;
-    font-size: 95%;
 }
 
 #submenu ul li a:hover {
@@ -243,21 +187,14 @@ header {
     z-index: 100;
     left: 100%;
     top: 0;
-    background: #eee;
-    background: rgba(255, 255, 255, .95);
-    border-left: 1px solid #fff;
+    background: #fff;
+    border: 1px solid #b2b2b2;
     box-shadow: 2px 2px 6px rgba(0,0,0,.15);
-    border-radius: 3px;
 }
 
 #submenu ul ul a {
-/*<<<<<<< HEAD
-    min-width: 10em;
+    width: 10em;
     color: #666;
-=======*/
-    width: 180px;
-    
-/*>>>>>>> b4942f7c92d8ecdecaee15664a05d8601bedecf1*/
 }
 
 #submenu ul ul ul {
@@ -275,15 +212,6 @@ header {
 #submenu ul ul li:hover ul,
 #submenu ul ul ul li:hover ul
 {display: block;}
-
-.arrow { padding:0 !important; border-width:4px; border-color: #ccc transparent transparent transparent; border-style:solid; position:absolute; margin: 7px 0 0 3px; top: 0; right: 4px;}
-
-#mainmenu ul ul .arrow,
-#submenu .arrow {
-    border-color: transparent transparent transparent #666;
-    right: 5px;
-    top: .6em;
-}
 
 /* Breadcrumbs */
 
@@ -303,10 +231,6 @@ header {
     text-decoration: none;
     color: #666;
 }
-#breadcrumbs ul li a:hover {
-    text-decoration: underline;
-}
-
 
 #breadcrumbs ul li:after {
     content: '»';
@@ -315,36 +239,6 @@ header {
 
 #breadcrumbs ul li:last-child:after {
     content: '';
-}
-
-/* ---[ Horizontal Menus ]--- */
-.horizmenu {
-    margin: 0 auto 10px;
-    background: rgba(255,255,255,.5);
-    width:100%;
-    border-radius:25px;
-    box-shadow: 0 -1px 0 rgba(0,0,0,.25);
-}
-.horizmenu ul li {
-
-    display: inline-block;
-    margin-right: 5px;
-    width: 90px;
-}
-.horizmenu ul li a {
-    text-decoration:none;
-    padding: 4px 10px;
-    color: #333;
-    display: block;
-}
-.horizmenu ul li.current a {
-    color: #fff;
-/* .grad-red */
-}
-.horizmenu ul {
-    text-align: center;
-    zoom: 1;
-    overflow: hidden;
 }
 
 /* ---[ Main ]--- */
@@ -364,12 +258,8 @@ header {
 }
 
 #main {
-    padding: 0 40px;
-    width: 680px;
-}
-
-.base_aside_right #main {
-    width: 480px;
+    padding: 0 10px;
+    width: 500px;
 }
 
 /* Content formatting */
@@ -498,7 +388,7 @@ ol li {
 .clearfix { zoom: 1; }
 
 #footer {
-    font: 75% 'Open Sans', sans-serif;
+    font: 75% Helvetica, Arial, sans-serif;
     color: #aaa;
     clear: both;
     text-align: center;
@@ -506,32 +396,11 @@ ol li {
 }
 
 #footer span {
-    color: #ddd;
+	color: #ddd;
 }
 
 /* Scholar's Cup Specific */
 
 nav {
-    padding-bottom: 0px;
-}
-
-/* tournaments */
-
-.tournament {
-    float: left;
-    width: 320px;
-    margin: 10px 20px 10px 0;
-    
-}
-.tournament_wrap .thumb {
-    float: left;
-    margin: 0 10px 10px 0;
-}
-.tournament_wrap .name a {
-    display: block;
-    text-decoration: none;
-    font-weight: bold;
-}
-.tournament_wrap .name a:hover {
-    text-decoration: underline;
+    padding-bottom: 10px;
 }
